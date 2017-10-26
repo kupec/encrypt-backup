@@ -1,0 +1,7 @@
+#!/bin/bash
+
+BACKUP_DIR=/path/to/directory/to/backup
+
+BACKUP_BUILD=/path/to/temporary/directory
+
+PASSPHRASE=secret
