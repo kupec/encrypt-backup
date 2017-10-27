@@ -1,7 +1,5 @@
 #!/bin/bash
 
-. ./config.inc
-
 DATE=$(date +"%Y-%m-%d")
 
 function goToScriptFolder {
@@ -41,6 +39,7 @@ function restoreCurrentFolder {
 ##### MAIN ########
 
 goToScriptFolder;
+. ./config.inc
 
 compressAndEncryptFolder;
 
