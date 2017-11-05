@@ -1,6 +1,15 @@
 #!/bin/bash
 
+BACKUP_DIR=$1
+BACKUP_BUILD=$2
+
 DATE=$(date +"%Y-%m-%d")
+
+if [ -z "$NOZIP" ]; then
+    ZIP=z
+fi;
+
+
 
 function goToScriptFolder {
     set RETURN_DIR=$(pwd)
@@ -20,7 +29,7 @@ function compressAndEncryptFolder {
     mkfifo $PIPE
 
     echo "Running compress task"
-    tar czf - $FOLDER_NAME > $PIPE &
+    tar c${ZIP}f - $FOLDER_NAME > $PIPE &
 
     cd $BACKUP_BUILD
 
