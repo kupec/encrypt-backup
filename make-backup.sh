@@ -2,6 +2,12 @@
 
 DATE=$(date +"%Y-%m-%d")
 
+if [ -z "$NOZIP" ]; then
+    ZIP=z
+fi;
+
+
+
 function goToScriptFolder {
     set RETURN_DIR=$(pwd)
     cd $(dirname $0)
@@ -20,7 +26,7 @@ function compressAndEncryptFolder {
     mkfifo $PIPE
 
     echo "Running compress task"
-    tar czf - $FOLDER_NAME > $PIPE &
+    tar c${ZIP}f - $FOLDER_NAME > $PIPE &
 
     cd $BACKUP_BUILD
 
