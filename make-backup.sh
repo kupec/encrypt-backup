@@ -1,5 +1,8 @@
 #!/bin/bash
 
+BACKUP_DIR=$1
+BACKUP_BUILD=$2
+
 DATE=$(date +"%Y-%m-%d")
 
 if [ -z "$NOZIP" ]; then
